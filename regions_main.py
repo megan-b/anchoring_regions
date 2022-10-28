@@ -24,11 +24,11 @@ from sklearn.mixture import GaussianMixture
 # CONSTANTS THAT MUST BE SET BY USER
 
 # folder where all data is saved
-dirname = "C:\\Users\\Megan\\Desktop\\PhD data\\hubs2017\\csv\\"
+dirname = "SET_DIRECTORY_NAME"
 
 # token for mapbox plotting
 # https://docs.mapbox.com/help/getting-started/access-tokens/
-mapbox_token = "pk.eyJ1IjoibWVnYW4tYiIsImEiOiJja2NuN3BvaXMwNWk0MnpvNTBramZhb2xsIn0.xxq1ys4vC_XYyT3pMRItpQ"
+mapbox_token = "SET_MAPBOX_TOKEN"
 
 
 #%% SET UP CONSTANTS
