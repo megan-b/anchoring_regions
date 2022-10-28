@@ -961,6 +961,18 @@ outlandsum = pd.pivot_table(outland, index=colname, columns="variable", aggfunc=
 outland.sort_values(by=[colname, "variable"], axis=0, ascending=True, inplace=True)
 outregion.sort_values(by=[colname, "variable"], axis=0, ascending=True, inplace=True)
 
+#%% SAVING FINAL OUTPUT DATA BEFORE PLOTTING
+
+regionpivot.to_pickle(dirname + "final-regionpivot-GMM.pkl")
+outland.to_pickle(dirname + "outland.pkl")
+outregion.to_pickle(dirname + "outregion.pkl")
+
+#%% OPTION TO READ DATA
+
+regionpivot = pd.read_pickle(dirname + "final-regionpivot-GMM.pkl")
+outland = pd.read_pickle(dirname + "outland.pkl")
+outregion = pd.read_pickle(dirname + "outregion.pkl")
+
 #%% SUPPORTING OUTPUT CHARTS
 
 numregions = pd.pivot_table(
@@ -995,61 +1007,9 @@ fig.update_layout(
 )
 pyo.plot(fig)
 
-#%%
-
-# Histogram of number of regions per card by type
-
-# Figure 8 in readme
-cardsum = pd.pivot_table(
-    regionpivot, index="Cardid", columns=colname, aggfunc="count", values=["Card"]
-)
-cardsum.fillna(0, inplace=True)
-
-cardsum.columns = cardsum.columns.droplevel()
-
-clustermap = {
-    0: "Education",
-    1: "Residences",
-    2: "Workplaces/Leisure",
-    3: "Education/Leisure",
-    4: "Workplaces",
-    5: "Leisure/Residences",
-}
-
-cardsum.rename(columns=clustermap, inplace=True)
-
-cardsum["Total"] = cardsum.iloc[:, 0:6].sum(axis=1)
-
-fig = px.histogram(
-    cardsum["Total"][cardsum["Residences"] == 0], # change here for other types
-    color_discrete_sequence=mycolors_discrete,
-    barmode="group",
-    labels={
-        "value": "Number of 'Residence' regions per card",
-        "count ": "Number of cards",
-        colname: "Region cluster",
-    },
-)
-fig.update_layout(
-    yaxis=dict(
-        autorange=True,
-        showgrid=True,
-        zeroline=True,
-        gridcolor="rgb(243, 243, 243)",
-        gridwidth=1,
-        zerolinecolor="rgb(243, 243, 243)",
-        zerolinewidth=2,
-        separatethousands=True,
-        tickformat=",",
-    ),
-    paper_bgcolor="rgb(255, 255, 255)",
-    plot_bgcolor="rgb(255, 255, 255)",
-)
-pyo.plot(fig)
-
 #%% BOXPLOT - ACTIVITY FRACTIONS BY REGION CLUSTER
 
-# Figure 9 in readme
+# Figure 8 in readme
 
 d = {"E_frac": "E", "L_frac": "L", "S_frac": "S", "M_frac": "M", "W_frac": "W"}
 
@@ -1087,7 +1047,7 @@ pyo.plot(fig)
 
 #%% BOXPLOT - LAND USE FRACTIONS BY REGION CLUSTER
 
-# Figure 10 in readme
+# Figure 9 in readme
 
 fig = px.box(
     outland,
@@ -1115,6 +1075,59 @@ fig.update_layout(
 
 fig.update_traces(marker=dict(opacity=0))
 pyo.plot(fig)
+
+#%%
+
+# Histogram of number of regions per card by type
+
+# Figure 10 in readme
+cardsum = pd.pivot_table(
+    regionpivot, index="Cardid", columns=colname, aggfunc="count", values=["Card"]
+)
+cardsum.fillna(0, inplace=True)
+
+cardsum.columns = cardsum.columns.droplevel()
+
+clustermap = {
+    0: "Education",
+    1: "Residences",
+    2: "Workplaces/Leisure",
+    3: "Education/Leisure",
+    4: "Workplaces",
+    5: "Leisure/Residences",
+}
+
+cardsum.rename(columns=clustermap, inplace=True)
+
+cardsum["Total"] = cardsum.iloc[:, 0:6].sum(axis=1)
+
+fig = px.histogram(
+    cardsum["Residences"], # change here for other types
+    color_discrete_sequence=mycolors_discrete,
+    barmode="group",
+    labels={
+        "value": "Number of 'Residence' regions per card",
+        "count ": "Number of cards",
+        colname: "Region cluster",
+    },
+)
+fig.update_layout(
+    yaxis=dict(
+        autorange=True,
+        showgrid=True,
+        zeroline=True,
+        gridcolor="rgb(243, 243, 243)",
+        gridwidth=1,
+        zerolinecolor="rgb(243, 243, 243)",
+        zerolinewidth=2,
+        separatethousands=True,
+        tickformat=",",
+    ),
+    paper_bgcolor="rgb(255, 255, 255)",
+    plot_bgcolor="rgb(255, 255, 255)",
+)
+pyo.plot(fig)
+
 
 #%% PLOT REGION CENTROIDS BY CLUSTER TYPE
 

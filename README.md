@@ -42,13 +42,13 @@ Figure 6: Chart of AIC and BIC vs number of clusters, used to identify the numbe
 Figure 7: Number of anchoring regions per passenger
 
 ![Image](./assets/readme_fig8.PNG "Figure 8")
-Figure 8: Number of 'Residence' type anchoring regions per passenger
+Figure 8: Activity fractions by region cluster (what is the distribution of activity types for each region that has been identified as being in this region type?)
 
 ![Image](./assets/readme_fig9.PNG "Figure 9")
-Figure 9: Activity fractions by region cluster (what is the distribution of activity types for each region that has been identified as being in this region type?)
+Figure 9: Land use fractions by region cluster (what is the distribution of land use types for each region that has been identified as being in this region type?)
 
 ![Image](./assets/readme_fig10.PNG "Figure 10")
-Figure 10: Land use fractions by region cluster (what is the distribution of land use types for each region that has been identified as being in this region type?)
+Figure 10: Number of 'Residence' type anchoring regions per passenger
 
 ![Image](./assets/readme_fig11.PNG "Figure 11")
-Figure 11: Region centroids on a map, coloured by region cluster. Visual inspection / local knowledge allows checking of region identification against local landmarks and points of interest.
+Figure 11: Region centroids on a map, coloured by region cluster. Visual inspection / local knowledge allows checking of region identification against local landmarks and points of interest. Note that 'Residence' regions have been excluded from this map for clarity.
