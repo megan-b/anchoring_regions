@@ -14,25 +14,25 @@ Two other minor updates to the code will be required in order for it to run - a 
 
 Since the results are not directly reproducible, throughout the code there are references to figure numbers and the plots generated from this code with the original data are included as static images here.
 
-![Image](./readme_fig1.PNG "Figure 1")
+![Image](./assets/readme_fig1.PNG "Figure 1")
 Figure 1: Histogram of number of card uses (with no trips dropped) - used to determine threshold for card inclusion in analysis
 
-![Image](./readme_fig2.PNG "Figure 2")
+![Image](./assets/readme_fig2.PNG "Figure 2")
 Figure 2: Example plot of stop clusters - showing where stops close by are considered together
 
-![Image](./readme_fig3.PNG "Figure 3")
+![Image](./assets/readme_fig3.PNG "Figure 3")
 Figure 3: Histogram of distances in stays (distance between disembarking a vehicle and embarking the next)
 
-![Image](./readme_fig4.PNG "Figure 4")
+![Image](./assets/readme_fig4.png "Figure 4")
 Figure 4: Number of visits to each identified region - used to identify where a region should be considering 'anchoring' vs 'visited'
 
-![Image](./readme_fig4a.PNG "Figure 4a")
+![Image](./assets/readme_fig4a.png "Figure 4a")
 Figure 4a: Zoomed in version of Figure 4 due to the long tail
 
-![Image](./readme_fig5a.PNG "Figure 5a")
+![Image](./assets/readme_fig5a.PNG "Figure 5a")
 Figure 5a: Fraction of time covered by anchoring region (what % of the time in the month does the passenger spend in anchoring regions?), for passengers with at least one anchoring region 
 
-![Image](./readme_fig5b.PNG "Figure 5b")
+![Image](./assets/readme_fig5b.PNG "Figure 5b")
 Figure 5b: Fraction of visits covered by anchoring region (what % of the visits in the month are to anchoring regions?), for passengers with at least one anchoring region 
 
 ![Image](./readme_fig6.PNG "Figure 6")
@@ -51,4 +51,4 @@ Figure 9: Activity fractions by region cluster (what is the distribution of acti
 Figure 10: Land use fractions by region cluster (what is the distribution of land use types for each region that has been identified as being in this region type?)
 
 ![Image](./readme_fig11.PNG "Figure 11")
-Figure 11: Region centroids plotted by region 
+Figure 11: Region centroids on a map, coloured by region cluster. Visual inspection / local knowledge allows checking of region identification against local landmarks and points of interest.
