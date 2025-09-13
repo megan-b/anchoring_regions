@@ -1,5 +1,6 @@
 This repository supports the paper titled "Identifying individual anchoring regions by mining public transport smart card data" and contains additional supporting charts and information as an appendix to the paper.
 
+This version of the repository supports the extended journal version of the paper. For the version as presented at the AusDM conference in 2024, view [this commit](https://github.com/megan-b/anchoring_regions/tree/87465ff622f12b3ee4be96e25a12ddf2026447aa).
 
 ## Using this code
 
