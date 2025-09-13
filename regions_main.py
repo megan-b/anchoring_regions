@@ -289,10 +289,7 @@ fig.update_layout(
     yaxis_title_text = 'Number of cards',
     showlegend=False,
     )
-#pyo.plot(fig, config=config)
-
-filename = "Fig1"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
+pyo.plot(fig, config=config)
 
 #%%
 
@@ -659,9 +656,6 @@ fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
 fig.update_yaxes(autorange="reversed")
 pyo.plot(fig, config=config)
 
-filename = "Fig2"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
-
 #%% STOP DATA
 
 busStops = pd.read_csv(dirname + "busStops.csv")
@@ -755,10 +749,7 @@ fig.add_trace(
         ),
     )
 )
-
-#pyo.plot(fig, config=config)
-filename = "Fig3"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
+pyo.plot(fig, config=config)
 
 #%% TURN JOURNEYS INTO STAYS
 
@@ -1025,10 +1016,7 @@ fig.update_layout(
     )
 fig.update_layout(default_layout,
                   xaxis={'categoryorder':'array', 'categoryarray':['<800m','>=800m, <2km',">=2km"]})
-#pyo.plot(fig, config=config)
-
-filename = "Fig4"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
+pyo.plot(fig, config=config)
 
 #%% GENERATE CARD SUMMARY
 
@@ -1346,9 +1334,6 @@ fig.update_traces(xbins=dict(
 
 pyo.plot(fig, config=config)
 
-filename = "Fig5a"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
-
 #%% HISTOGRAM - FRACTION OF VISITS COVERED BY ANCHORING REGIONS
 
 # Figure 5b in readme
@@ -1368,10 +1353,7 @@ fig.update_traces(xbins=dict(
         end=1,
     )) 
 
-#pyo.plot(fig, config=config)
-
-filename = "Fig5b"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
+pyo.plot(fig, config=config)
 
 #%% SEPARATE OUT ANCHORING REGIONS ONLY
 
@@ -1541,9 +1523,6 @@ fig = px.line(
 fig.update_layout(default_layout)
 pyo.plot(fig, config=config)
 
-filename = "Fig6"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1000, height=400)
-
 #%%
 # From this plot, determine that the appropriate number of clusters
 NUM_COMPONENTS = 5 
@@ -1653,7 +1632,7 @@ fig.update_layout(xaxis_title="Number of regions per card",
                   yaxis_title="Number of cards",
                   showlegend=False)
 fig.update_layout(default_layout_ncaa)
-#pyo.plot(fig, config=config)
+pyo.plot(fig, config=config)
 
 
 #%% BOXPLOT - LAND USE FRACTIONS BY REGION CLUSTER
@@ -1904,10 +1883,7 @@ fig = px.scatter_map(
 fig.update_layout(default_layout)
 fig.update_layout(map_style="light")
 fig.update_traces(marker=dict(size=10))
-#pyo.plot(fig, config=config)
-
-filename = "Fig7"
-fig.write_image(dirname+"figs\\github\\"+filename+".png", width=1800, height=700)
+pyo.plot(fig, config=config)
 
 #%% SENSITIVITY ON STOP CLUSTER EPS
 
